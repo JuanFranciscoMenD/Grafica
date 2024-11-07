@@ -103,7 +103,7 @@ private void updateGraph() {
 ```
 
 
-3. Métodos Estáticos para Manejo de Archivos
+4. Métodos Estáticos para Manejo de Archivos
 
 readFile
 Este método lee un archivo línea por línea y extrae pares clave-valor que se almacenan en un mapa:
