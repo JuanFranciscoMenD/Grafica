@@ -102,31 +102,8 @@ private void updateGraph() {
 }
 ```
 
-4. Clase Interna: Grafica
 
-La clase interna Grafica es responsable de crear y mostrar los gráficos:
-
-```java
-private static class Grafica extends JPanel {
-    public Grafica(String chartType, String title, Map<String, Double> data) {
-        JFreeChart chart = null;
-        if (chartType.equalsIgnoreCase("PASTEL")) {
-            DefaultPieDataset pieDataset = new DefaultPieDataset();
-            data.forEach(pieDataset::setValue);
-            chart = ChartFactory.createPieChart(title, pieDataset, true, true, false);
-        } else if (chartType.equalsIgnoreCase("BARRAS")) {
-            DefaultCategoryDataset barDataset = new DefaultCategoryDataset();
-            data.forEach((key, value) -> barDataset.addValue(value, key, key));
-            chart = ChartFactory.createBarChart(title, "Categoría", "Valor", barDataset);
-        }
-        ChartPanel chartPanel = new ChartPanel(chart);
-        chartPanel.setPreferredSize(new Dimension(470, 270));
-        this.add(chartPanel);
-    }
-}
-```
-
-5. Métodos Estáticos para Manejo de Archivos
+3. Métodos Estáticos para Manejo de Archivos
 
 readFile
 Este método lee un archivo línea por línea y extrae pares clave-valor que se almacenan en un mapa:
