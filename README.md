@@ -1,12 +1,14 @@
+# JGrafica: Visualización de Datos en Java
+
 ## Descripción
-*JGrafica* es una aplicación de escritorio en Java que permite a los usuarios visualizar datos numéricos a través de gráficos interactivos utilizando la biblioteca JFreeChart. La aplicación permite seleccionar un archivo que contenga datos, y visualizar los datos seleccionados.
+**JGrafica** es una aplicación de escritorio en Java que permite a los usuarios visualizar datos numéricos a través de gráficos interactivos utilizando la biblioteca JFreeChart. La aplicación permite seleccionar un archivo que contenga datos, y visualizar los datos seleccionados.
 
 ## Estructura del Código
 
 ### 1. Importaciones
 El código comienza con las importaciones necesarias para utilizar las bibliotecas de gráficos y la interfaz gráfica:
 
-java
+```java
 
 package grafica;
 
@@ -27,7 +29,7 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.swing.table.DefaultTableModel;
 
-
+```
 
 2. Clase Principal: JGrafica
 
@@ -41,7 +43,7 @@ datosSeleccionados: Mapa que almacena los datos seleccionados por el usuario.
 Constructor
 El constructor configura la interfaz gráfica y añade un botón para seleccionar archivos:
 
-java
+```java
 
 public JGrafica() {
     setLayout(new BorderLayout());
@@ -73,13 +75,13 @@ public JGrafica() {
     });
 }
 
-
+```
 
 3. Métodos Principales
 getChartType y setChartType
 Estos métodos permiten obtener y establecer el tipo de gráfico:
 
-java
+```java
 
 public String getChartType() { return chartType; }
 public void setChartType(String chartType) {
@@ -98,13 +100,13 @@ private void updateGraph() {
     graphPanel.revalidate();
     graphPanel.repaint();
 }
-
+```
 
 4. Clase Interna: Grafica
 
 La clase interna Grafica es responsable de crear y mostrar los gráficos:
 
-java
+```java
 private static class Grafica extends JPanel {
     public Grafica(String chartType, String title, Map<String, Double> data) {
         JFreeChart chart = null;
@@ -122,14 +124,14 @@ private static class Grafica extends JPanel {
         this.add(chartPanel);
     }
 }
-
+```
 
 5. Métodos Estáticos para Manejo de Archivos
 
 readFile
 Este método lee un archivo línea por línea y extrae pares clave-valor que se almacenan en un mapa:
 
-java
+```java
 private static Map<String, Double> readFile(String nameFile) {
     Map<String, Double> divisions = new HashMap<>();
     String line;
@@ -146,12 +148,12 @@ private static Map<String, Double> readFile(String nameFile) {
     }
     return divisions;
 }
-
+```
 
 datosGenerales
 Este método muestra una ventana emergente con una tabla que permite al usuario seleccionar qué datos graficar:
 
-java
+```java
 public static Map<String, Double> datosGenerales(Map<String, Double> datos) {
     DefaultTableModel tableModel = new DefaultTableModel(new Object[]{"Categoría", "Valor"}, 0);
     JTable table = new JTable(tableModel);
@@ -203,7 +205,7 @@ public static Map<String, Double> datosGenerales(Map<String, Double> datos) {
     
     return selectedData[0];
 }
-
+```
 
 ## Video de Demostración
 
